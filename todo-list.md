@@ -811,7 +811,7 @@ Tech learn
 - [ ] react-query code volution 3 classes      1
 
 Leetcode:
-- [ ] one array & string question     2
+- [X] one array & string question     2
 
 per:
 - [ ] 2/3 CS341 LEC2 for next term: Lap Chi Lau     3
