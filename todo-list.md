@@ -814,13 +814,13 @@ Leetcode:
 - [X] one array & string question     2
 
 per:
-- [ ] 2/3 CS341 LEC2 for next term: Lap Chi Lau     3
+- [X] 1/2 CS341 LEC2 for next term: Lap Chi Lau     3
 
 
 
 
 ## 2024-04-28
-- [ ] use posting/specification api in ag grid
+- [X] use posting/specification api in ag grid
   - [ ] able to create useSpecification hook but fetchSpecifications function got stuck. 
     - [ ] found which http reuqest to use, but large data, how can I create the interface/type for such big data.
 
