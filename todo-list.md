@@ -794,7 +794,7 @@ RR:
 LRO:
 - [X] grant app access research          4 
 
-## 2024-04-25
+## 2025-04-25
 Home:
 - [X] American visa
 
@@ -805,7 +805,7 @@ Leetcode:
 - [X] one array & string question    4
 
 
-## 2024-04-26
+## 2025-04-26
 Home:
 Tech learn
 - [ ] react-query code volution 3 classes      1
@@ -819,16 +819,28 @@ per:
 
 
 
-## 2024-04-28
+## 2025-04-28
 - [X] use posting/specification api in ag grid
   - [ ] able to create useSpecification hook but fetchSpecifications function got stuck. 
-    - [ ] found which http reuqest to use, but large data, how can I create the interface/type for such big data.
+    - [ ] found which http reuqest to use, but large data, how can Icreate the interface/type for such big data.
+  
+## 2025-04-29
+- [X] use posting/specification api in ag grid
+  - [ ] able to create useSpecification hook but fetchSpecifications function got stuck. 
+    - [ ] found which http reuqest to use, but large data, how can Icreate the interface/type for such big data.
+- [X] arms
+  - [X] new requirement 
 
 
-## 2024-04-15 Home:
-- [ ] pack the mount                    3
-- [X] leetcode hashmap x 1 + string & array x 1            27
-- [ ] react-hook-form 2 more classes    5
+
+Home:
+- [X] start the react-query
+- [X] lc: one array&string question
+- [ ] CS341 LEC2 3/4
+
+## 2025-04-30
+- [X] LRO 
+  - [X] try api in new site
 
 Overall works:3z
 - [X] BO SSO/Azure AD groups doc for developer/business
