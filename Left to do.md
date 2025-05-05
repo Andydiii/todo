@@ -1,16 +1,11 @@
 ## Work:
 RR:
-- [ ] landing page api(refer to the two pages of jinyu sent, and refer to his modal how to use that)
-- [ ] style
-
-Winnie:
-- [ ] personal project meet client next week
+- [ ] react-qeury learning 26/ 108, goal 55/108
 
 LRO:
-- [ ] Jake tut how to deploy 
+- [ ] use api in application
+- [ ] documentation for Hannah
+
 
 ## Home:
-- [ ] mount return myself no pick up available
-- [ ] American visa
-
 - [ ] resume

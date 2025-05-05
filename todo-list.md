@@ -842,6 +842,35 @@ Home:
 - [X] LRO 
   - [X] try api in new site
 
+## 5.1
+- [ ] RR
+  - [ ] react-qeury learning 26/ 108, goal 55/108
+- [X] LRO
+  - [X] last step issue: wrong url for get request
+  - [X] in our case we dont use get request but post requst to add file into sp . verified it works
+
+Home
+- [X] string array one question
+- [ ] CS341 lec 2
+
+
+
+## 5.2
+- [X] RR
+  - [X] make the data in ag grid dynamic 
+
+- [X] LRO
+  - [X] research on using api in app
+
+Home
+- [X] string array one question
+
+
+## 5.4
+Home
+- [ ] string array one question
+- [ ] CS341 lec 2
+
 Overall works:3z
 - [X] BO SSO/Azure AD groups doc for developer/business
 - [X] UI improvement, using ontario design system, correct position, valid user check
