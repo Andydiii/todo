@@ -866,10 +866,31 @@ Home
 - [X] string array one question
 
 
-## 5.4
+## 5.5
+Office:
+- [X] LRO basic structure is done 
+
+
+## 5.6
+office:
+- [X] change query of gone query and deployed to PROD
+
+
+## 5.7
+- [ ] reading one secontion of react tut - State: A Component's Memory
+- [ ] tanstack react-query 55/108
+
 Home
 - [ ] string array one question
 - [ ] CS341 lec 2
+
+
+
+
+
+
+
+
 
 Overall works:3z
 - [X] BO SSO/Azure AD groups doc for developer/business
