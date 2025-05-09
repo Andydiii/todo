@@ -879,15 +879,13 @@ office:
 office:
 - [X] RR prepare testing cases - before afternoon
 - [X] tanstack react-query finished react query interact with cache
-- [ ] reading one section of react tut - State: A Component's Memory
 
 Home
-- [ ] string array one question
 - [X] CS341 lec 2 up to more recurrence.
 
 ## 5.9
 office:
-- [ ] go through the RR testing cases
+- [X] go through the RR testing cases
 - [ ] tanstack react-query finished react query interact with cache
 - [ ] reading one section of react tut - State: A Component's Memory
 
