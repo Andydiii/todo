@@ -34,3 +34,4 @@
   - whenever we set a existing state to a new value, react queues a new render -> react re-renders the component according to the new state value.
 - Rendering takes a snapshot in time:
   - “Rendering” means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated using its state at the time of the render.
+  

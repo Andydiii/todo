@@ -875,16 +875,25 @@ Office:
 office:
 - [X] change query of gone query and deployed to PROD
 
-
-## 5.7
-- [ ] reading one secontion of react tut - State: A Component's Memory
-- [ ] tanstack react-query 55/108
+## 5.8
+office:
+- [X] RR prepare testing cases - before afternoon
+- [X] tanstack react-query finished react query interact with cache
+- [ ] reading one section of react tut - State: A Component's Memory
 
 Home
 - [ ] string array one question
-- [ ] CS341 lec 2
+- [X] CS341 lec 2 up to more recurrence.
 
+## 5.9
+office:
+- [ ] go through the RR testing cases
+- [ ] tanstack react-query finished react query interact with cache
+- [ ] reading one section of react tut - State: A Component's Memory
 
+Home
+- [ ] string array one question
+- [X] CS341 lec 2 up to more recurrence.
 
 
 
@@ -1008,3 +1017,8 @@ new id: S-1-12-1-458778411-1190707732-4189353344-211737482
 
 RR:
 password: InThePitch-BlackNightSky,YourSoulSparkles.
+
+
+two testings:
+1. wrong sid -> update sid to correct one -> email to user
+2. not in db -> no account send a email to user
