@@ -886,7 +886,7 @@ Home
 ## 5.9
 office:
 - [X] go through the RR testing cases
-- [ ] tanstack react-query finished react query interact with cache
+- [ ] tanstack react-query 55/108
 - [ ] reading one section of react tut - State: A Component's Memory
 
 Home
