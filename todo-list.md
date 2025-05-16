@@ -886,20 +886,77 @@ Home
 ## 5.9
 office:
 - [X] go through the RR testing cases
-- [ ] tanstack react-query 55/108
+- [X] tanstack react-query 55/108 stale mode is completed
 - [ ] reading one section of react tut - State: A Component's Memory
 
 Home
-- [ ] string array one question
 - [X] CS341 lec 2 up to more recurrence.
 
+## 5.11
+Home
+- [X] tanstack react-query 44/108 (working on it)
 
+## 5.12
+Office:
+- [ ] react doc (finish adding interactivity)
+  - [X] state as a snapshot
+  - [ ] queueing a series of state updates
+  - [ ] updaing objects in state
+  - [ ] updating arrays in state
+Home
+- [ ] project UI 
+- [X] tanstack react-query 54/108 (working on it)
+- [ ] string array one question
+- [ ] CS341 TUT
 
+## 5.13
+Office:
+- [ ] react doc (finish adding interactivity)
+  - [X] state as a snapshot
+  - [ ] queueing a series of state updates
+  - [ ] updaing objects in state
+  - [ ] updating arrays in state
+Home
+- [ ] project UI 
+- [X] tanstack react-query 54/108 (working on it)
+- [ ] string array one question
+- [ ] CS341 TUT
 
+## 5.14
+Office:
+- [X] react doc (finish adding interactivity)
+  - [X] queueing a series of state updates
+Home
+- [ ] tanstack react-query one more section
+- [ ] string array one question
+- [ ] CS341 TUT
 
+## 5.15
 
+- [X] Testing ORRM french title/french name/ french URL
+- [X] react doc (finish adding interactity)
+  - [X] updaing objects in state 1
+- [X] ARMs:
+  - [X] understand iron_m trigger delete
+- [X] LRO:
+  - [X] Set up a meeting with Jake 
+Home
+- [ ] tanstack react-query one more section 4
+- [ ] string array one question 5
+- [ ] CS341 TUT 3
 
-Overall works:3z
+## 5.16
+Office:
+- [ ] RR
+  - [ ] update CQ and defect list based on release note. check email.
+- [ ] react doc (finish adding interactity)
+  - [ ] updating arrays in state 
+Home
+- [ ] tanstack react-query one more section 4
+- [ ] string array one question 5
+- [ ] CS341 TUT 3
+
+Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
 - [X] UI improvement, using ontario design system, correct position, valid user check
 - [X] components integration
