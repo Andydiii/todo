@@ -399,3 +399,318 @@ But unlike a regular mutation, it doesn’t overwrite the past state! A complete
   }
 
 ```
+
+
+### Updaing Arrays in State
+
+#### arrays are mutable in JS, same as object, but still should treat them like immutable when stored in state. just like with objects, when you want to update an array stored in state, you need to create a new one(or make a copy of an existing one), and then set state to use the new array.
+
+#### you will learn:
+  - How to add, remove, or change items in an array in React state.
+  - How to update an object inside of an array.
+  - How to make array copying
+
+#### Updating arrays without mutation
+  - **you should treat arrays in React state as read-only**, this means you shouldn't reassign items inside an array like `arr[0] = 'bird'`, and you shouldn't use methods mutate array like `push()` and `pop()`
+  - Instead, we pass a new array to state set function. i.e. to use non-mutating method like `filter()` and `map()` to create a new array.
+  - Here is a reference table of common array operations. when dealing with arrays inside React state, avoid using methods in left column, and prefer methods in right column.
+  ![](image12.png)
+    - Alternatively, use `Immer` which lets you use both column methods
+
+#### Adding to an array
+- `push()` will mutate an array, which you dont want:
+  ```jsx
+    const [name, setName] = useState('');
+    const [artists, setArtists] = useState([]);
+
+    <button onClick={() => {
+        artists.push({
+          id: nextId++,
+          name: name,
+        });
+    }}>
+      Add
+    </button>
+  ```
+- Instead, create a new array which contains the existing items and a new item.The easiest way is to use ... array spread syntax: 
+  ```jsx
+    setArtists( // Replace the state
+      [ // with a new array
+        ...artists, // that contains all the old items
+        { id: nextId++, name: name } // and one new item at the end
+      ]
+    );
+  ```
+- The **array spread syntax** also lets you **prepend** an item by placing it before the original items.
+  ```jsx
+    setArtists([
+      { id: nextId++, name: name },
+      ...artists // Put old items at the end
+    ]);
+  ```
+  - In this way, spead can do the job of both `push()` and `unshift() `(adding to the beginning of the array)
+
+#### Removing from an array:
+- The easiest way to remove an item from an array is to filter it out by `filter`.
+  ```jsx
+    <ul>
+      {artists.map(artist => (
+        <li key={artist.id}>
+          {artist.name}{' '}
+          <button onClick={() => {
+            setArtists(
+              artists.filter(a =>
+                a.id !== artist.id
+              )
+            );
+          }}>
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  ```
+  - Here, artists.filter(a => a.id !== artist.id) means “create an array that consists of those artists whose IDs are different from artist.id”. Note that filter does not modify the original array.
+
+#### Transforming an array
+- If you want to change some or all items of the array, you can use `map()` to create a new array. The function you will pass to `map` can decide what to do with each item, based on its data or its index( or both ).
+
+- In this example, 
+  ```jsx
+  let initialShapes = [
+    { id: 0, type: 'circle', x: 50, y: 100 },
+    { id: 1, type: 'square', x: 150, y: 100 },
+    { id: 2, type: 'circle', x: 250, y: 100 },
+  ];
+  
+  const [shapes, setShapes] = useState(
+    initialShapes
+  );
+
+  function handleClick() {
+      const nextShapes = shapes.map(shape => {
+        if (shape.type === 'square') {
+          // No change
+          return shape;
+        } else {
+          // Return a new circle 50px below
+          return {
+            ...shape, // keep id, type, x the same as before
+            y: shape.y + 50,
+          };
+        }
+      });
+      // Re-render with the new array
+      setShapes(nextShapes);
+    }
+  ```
+
+#### Replacing items in an array
+-  Assignments like arr[0] = 'bird' are mutating the original array, so instead you’ll want to use map for this as well.
+
+```jsx
+let initialCounters = [
+  0, 0, 0
+];
+
+const [counters, setCounters] = useState(
+    initialCounters
+);
+
+// "index" is the index of the array we wanan replace 
+// i is the index when we loop the counter array
+function handleIncrementClick(index) {
+  const nextCounters = counters.map((c, i) => {
+    if (i === index) {
+      // Increment the clicked counter
+      return c + 1;
+    } else {
+      // The rest haven't changed
+      return c;
+    }
+  });
+  setCounters(nextCounters);
+}
+
+```
+
+#### Inserting into an array
+- Sometimes, you may want to insert an item at a particular position thats neither at the beginning nor at the end. for this, you can use the `...` array spread syntax together with the `slice()` method. create an array that spreads the slice before the insertion point, then new item, and then the rest of the original array.
+
+```jsx
+  let nextId = 3;
+  const initialArtists = [
+    { id: 0, name: 'Marta Colvin Andrade' },
+    { id: 1, name: 'Lamidi Olonade Fakeye'},
+    { id: 2, name: 'Louise Nevelson'},
+  ];
+
+  const [name, setName] = useState('');
+  const [artists, setArtists] = useState(
+    initialArtists
+  );
+
+  function handleClick() {
+    const insertAt = 1; // Could be any index
+    const nextArtists = [
+      // Items before the insertion point:
+      ...artists.slice(0, insertAt),
+      // New item:
+      { id: nextId++, name: name },
+      // Items after the insertion point:
+      ...artists.slice(insertAt)
+    ];
+    setArtists(nextArtists);
+    setName('');
+  }
+```
+
+
+#### Making other changes to an array
+- There are some things you cant do with spread syntax and non-mutating methods like `map()` and `filter()`. for example you may want to `reverse()` and `sort()`, but they are mutating the original array, so they can't be used directly. However, **you can copy the array first and then make changes to it.** 
+- Example:
+  ```jsx
+    function handleClick() {
+      const nextList = [...list];
+      nextList.reverse();
+      setList(nextList);
+    }
+  ```
+  - use [...list] spread syntax to create a copy of the original copy of the original array first. Now that you have a copy, youc an use mutating methods like `nextList.reverse()` or `nextList.sort()`, or even assign items with `nextList[0] = "something"`.
+  - However, even if you copy an array, you can't mutate existing items inside of it directly. This is bc copying is **shallow** - the new array will contain the same items as the original one. **So if you modify an object insde the copied array, you are mutating the existing state**. For exmaple, code like this is a problem.
+  
+  ```jsx
+    const nextList = [...list];
+    nextList[0].seen = true; // Problem: mutates list[0]
+    setList(nextList);
+  ```
+
+#### Updating objects inside arrays:
+ - Although the myNextList array itself is new, the items themselves are the same as in the original myList array. So changing artwork.seen changes the original artwork item. That artwork item is also in yourList, which causes the bug. Bugs like this can be difficult to think about, but thankfully they disappear if you avoid mutating state.
+    ```jsx
+      const initialList = [
+        { id: 0, title: 'Big Bellies', seen: false },
+        { id: 1, title: 'Lunar Landscape', seen: false },
+        { id: 2, title: 'Terracotta Army', seen: true },
+      ];
+
+      const [myList, setMyList] = useState(initialList);
+      const [yourList, setYourList] = useState(
+        initialList
+      );
+
+      function handleToggleMyList(artworkId, nextSeen) {
+        const myNextList = [...myList];
+        const artwork = myNextList.find(
+          a => a.id === artworkId
+        );
+        artwork.seen = nextSeen; // problem: mutates an existing item
+        setMyList(myNextList);
+      }
+
+      function handleToggleYourList(artworkId, nextSeen) {
+        const yourNextList = [...yourList];
+        const artwork = yourNextList.find(
+          a => a.id === artworkId
+        );
+        artwork.seen = nextSeen; // problem: mutates an existing item
+        setYourList(yourNextList);
+      }
+    ```
+- You can use map to substitute an old item with its updated version without mutation.  
+  ```jsx
+    function handleList(artworkId, nextSeen) {
+      setMyList(myList.map(artwork => {
+        if (artwork.id === artworkId) {
+          // Create a *new* object with changes
+          return { ...artwork, seen: nextSeen };
+        } else {
+          // No changes
+          return artwork;
+        }
+      }))
+    }
+  ```
+#### Write conciese update logic with immer
+- Generally, you shouldn’t need to update state more than a couple of levels deep. If your state objects are very deep, you might want to restructure them differently so that they are flat
+- If you don’t want to change your state structure, you might prefer to use Immer, which lets you write using the convenient but mutating syntax and takes care of producing the copies for you.
+- example:
+  ```jsx
+    import { useState } from 'react';
+    import { useImmer } from 'use-immer';
+
+    let nextId = 3;
+    const initialList = [
+      { id: 0, title: 'Big Bellies', seen: false },
+      { id: 1, title: 'Lunar Landscape', seen: false },
+      { id: 2, title: 'Terracotta Army', seen: true },
+    ];
+
+    export default function BucketList() {
+      const [myList, updateMyList] = useImmer(
+        initialList
+      );
+      const [yourList, updateYourList] = useImmer(
+        initialList
+      );
+
+      function handleToggleMyList(id, nextSeen) {
+        updateMyList(draft => {
+          const artwork = draft.find(a =>
+            a.id === id
+          );
+          artwork.seen = nextSeen;
+        });
+      }
+
+      function handleToggleYourList(artworkId, nextSeen) {
+        updateYourList(draft => {
+          const artwork = draft.find(a =>
+            a.id === artworkId
+          );
+          artwork.seen = nextSeen;
+        });
+      }
+
+      return (
+        <>
+          <h1>Art Bucket List</h1>
+          <h2>My list of art to see:</h2>
+          <ItemList
+            artworks={myList}
+            onToggle={handleToggleMyList} />
+          <h2>Your list of art to see:</h2>
+          <ItemList
+            artworks={yourList}
+            onToggle={handleToggleYourList} />
+        </>
+      );
+    }
+
+    function ItemList({ artworks, onToggle }) {
+      return (
+        <ul>
+          {artworks.map(artwork => (
+            <li key={artwork.id}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={artwork.seen}
+                  onChange={e => {
+                    onToggle(
+                      artwork.id,
+                      e.target.checked
+                    );
+                  }}
+                />
+                {artwork.title}
+              </label>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+  ```
+  - This is because you’re not mutating the original state, but you’re mutating a special draft object provided by Immer. Similarly, you can apply mutating methods like push() and pop() to the content of the draft. 
+  - Behind the scenes, Immer always constructs the next state from scratch according to the changes that you’ve done to the draft. This keeps your event handlers very concise without ever mutating state.

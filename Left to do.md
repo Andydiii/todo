@@ -5,6 +5,7 @@ LRO:
 
 ARMS:
 - [ ] Set up the data source 
+- [ ] CI CD
 
 ## Home:
 - [ ] resume

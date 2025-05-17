@@ -932,7 +932,6 @@ Home
 - [ ] CS341 TUT
 
 ## 5.15
-
 - [X] Testing ORRM french title/french name/ french URL
 - [X] react doc (finish adding interactity)
   - [X] updaing objects in state 1
@@ -941,20 +940,20 @@ Home
 - [X] LRO:
   - [X] Set up a meeting with Jake 
 Home
-- [ ] tanstack react-query one more section 4
-- [ ] string array one question 5
-- [ ] CS341 TUT 3
+- [X] string hashmap one question
+- [X] CS341 TUT up to 2 a
 
 ## 5.16
 Office:
-- [ ] RR
-  - [ ] update CQ and defect list based on release note. check email.
-- [ ] react doc (finish adding interactity)
-  - [ ] updating arrays in state 
+- [X] LRO troubleShooting
+- [X] RR
+  - [X] update CQ and defect list based on release note. check email. all are showstopper and put them closed
+- [X] react doc (finish adding interactity)
+  - [X] updating arrays in state 
 Home
-- [ ] tanstack react-query one more section 4
-- [ ] string array one question 5
-- [ ] CS341 TUT 3
+- [ ] tanstack react-query one more section 
+- [ ] string array one question 
+- [ ] CS341 TUT 2 b
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
