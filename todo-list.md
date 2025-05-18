@@ -953,7 +953,12 @@ Office:
 Home
 - [ ] tanstack react-query one more section 
 - [ ] string array one question 
-- [ ] CS341 TUT 2 b
+- [ ] CS341 TUT 1
+ 
+## 5.17
+- [ ] tanstack react-query one more section 
+- [ ] string array one question 
+- [X] CS341 TUT 1
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
