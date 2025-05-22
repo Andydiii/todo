@@ -175,7 +175,7 @@ During the next render, React goes through the state queue:\
 
 **Whats mutation**
 - immutable Example: value `setX(5)`. the x state changed from 0 to 5, but the number 0 itself didnt change. Its not possible to make any changes to the built-in primitive values like numbers and booleans in JS. 
-
+- mutation: DONT DO `position.x = 5;`
 - Example: `const [position, setPosition] = useState({ x: 0, y: 0 });`
   - Object is mutable. we are able to change the contents of the object isself, this is called **mutation** `position.x = 5;`
 
@@ -207,6 +207,14 @@ During the next render, React goes through the state queue:\
     );
   }
 
+```
+
+- Bad Example:
+```JSX
+  onPointerMove={e => {
+    position.x = e.clientX;
+    position.y = e.clientY;
+  }}
 ```
 
 **Copying objects with the spread syntax**

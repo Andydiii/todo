@@ -960,6 +960,69 @@ Home
 - [ ] string array one question 
 - [X] CS341 TUT 1
 
+## 5.18
+- [X] tanstack react-query one more section 
+- [X] string array one question 
+
+## 5.19
+- [ ] Python class
+- [X] CS341 half of LEC3 
+- [ ] tanstack-RQ one more section
+
+## 5.20 
+Office:
+RR
+- [ ] summary of the stats
+
+ARMS
+- [X] data source 
+
+Home:
+- [X] LRO steps 
+- [ ] Python class      
+- [ ] CS341 second half of LEC3   
+- [X] tanstack-RQ one more section 1
+
+
+
+
+
+## 5.21
+ARMS:
+- [X] Data source plan:  
+  - [X] copy whole UAT folder to DEV folder.
+  - [X] update the data source to dev ds for each report file. 
+  - [X] let jake to update the "path" ? so UI uses the right report folder.
+
+
+Home:
+- [X] Python class      
+- [X] CS341 second half of LEC3   
+- [ ] tanstack-RQ one more section 1
+- [X] one question in leetcode. from array & string.
+
+Learned:
+- [X] Different database uses different sql language, e.g., microsoft sql server uses T-SQL 
+
+
+## 5.22
+RR:
+- [ ] react continue
+
+ARMS:
+- [ ] check the destory_dt and archive_dt to see if any moved from record to destroy in these three month
+- [ ] whats historical inventory reports?
+
+LRO:
+
+Home:
+- [ ] Python class rest part      
+- [ ] CS341 one last algorithm of LEC3   
+- [ ] tanstack-RQ one more section 1
+- [X] one question in leetcode. from array & string.
+
+
+
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
 - [X] UI improvement, using ontario design system, correct position, valid user check
