@@ -1007,21 +1007,41 @@ Learned:
 
 ## 5.22
 RR:
-- [ ] react continue
+- [ ] react continue reading doc two small chapter 4
 
 ARMS:
-- [ ] check the destory_dt and archive_dt to see if any moved from record to destroy in these three month
-- [ ] whats historical inventory reports?
+- [X] check the destory_dt and archive_dt to see if any moved from record to destroy in these three month
+- [X] whats historical inventory reports?
 
 LRO:
-
+- [X] tell Donna we can do french first
+  
 Home:
-- [ ] Python class rest part      
-- [ ] CS341 one last algorithm of LEC3   
-- [ ] tanstack-RQ one more section 1
-- [X] one question in leetcode. from array & string.
+- [X] Python class rest part finish inheritence              3
+- [X] CS341 one last algorithm of LEC3    1
+- [X] tanstack-RQ one more section 1      2
+- [X] one question in leetcode. from array & string. 4
 
+## 5.25
+- [X] One chapter in Managing State continue with the second challenge
+- [X] CS341 LEC4 half
 
+## 5.26
+- [X] One chapter in Managing State 
+- [X] CS341 LEC4 half note write down
+- [ ] leetcode 
+- [X] tanstack query one more section
+
+## 5.27
+- [ ] tanstack query one more section 
+- [ ] One chapter in Managing State 
+- [X] CS341 LEC4 integer multiplication
+- [ ] leetcode 
+
+## 5.28
+- [X] tanstack query one more section 1. 
+- [ ] One chapter in Managing State   2. 
+- [ ] CS341 LEC4 rest                 3.
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business

@@ -1,4 +1,6 @@
-### Interaction with useState()
+# 1.0 Adding Interactivity
+
+### 1.1 Interaction with useState()
 - everytime we use setSomething() to change the state, react will rerender the whole component with the new state.
 - Use a state variable when a component needs to “remember” some information between renders.
 - different/same component will not share same state. state is fully private and isolated to only the one component.
@@ -18,7 +20,7 @@
     - Also notice how the app component doesn’t “know” anything about the Component state or even whether it has any. Unlike props, state is fully private to the component declaring it. 
 - Hooks can only be called at the top level of the component function
 
-### Render and commit
+### 1.2 Render and commit
 - component render can be triggered by following 2 reasons:
   - initial render
   - state update or its ancestor's state updated:
@@ -29,7 +31,7 @@
   - after rendering(calling) cour components, react will modify the DOM
   - react only commit the part that is different than before to DOM, others stay same. React only changes the DOM nodes if there’s a difference between renders
 
-### State as a Snapshot
+### 1.3 State as a Snapshot
 **will learn**
 - Setting state requests a new render.
 - React stores state outside of your component, as if on a shelf.
@@ -66,7 +68,7 @@
 - How event handlers access a "snapshot" of the state
 
 
-### Queueing a Series of State Updates:
+### 1.4 Queueing a Series of State Updates:
 sometimes we need to perform multiple operations on the value before queueing the next render.
 
 **Will learn:**
@@ -165,7 +167,7 @@ During the next render, React goes through the state queue:\
 - React processes state updates after event handlers have finished running. This is called batching.
 - To update some state multiple times in one event, you can use setNumber(n => n + 1) updater function.
   
-### Updating Objects in State
+### 1.5 Updating Objects in State
 
 **will learn**
 - How to correctly update an object in React state
@@ -246,7 +248,7 @@ During the next render, React goes through the state queue:\
         setPerson({
           ...person,
           //  use the [ and ] braces inside your object definition to specify a property with a dynamic name.
-          [e.target.name]: e.target.value //"name" is specified in tag
+          [e.target.name]: e.target.value //"name" is specified in html tag below
         });
       }
 
@@ -409,7 +411,7 @@ But unlike a regular mutation, it doesn’t overwrite the past state! A complete
 ```
 
 
-### Updaing Arrays in State
+### 1.6 Updaing Arrays in State
 
 #### arrays are mutable in JS, same as object, but still should treat them like immutable when stored in state. just like with objects, when you want to update an array stored in state, you need to create a new one(or make a copy of an existing one), and then set state to use the new array.
 
@@ -722,3 +724,150 @@ function handleIncrementClick(index) {
   ```
   - This is because you’re not mutating the original state, but you’re mutating a special draft object provided by Immer. Similarly, you can apply mutating methods like push() and pop() to the content of the draft. 
   - Behind the scenes, Immer always constructs the next state from scratch according to the changes that you’ve done to the draft. This keeps your event handlers very concise without ever mutating state.
+
+# 2.0 Managing State
+In this chapter, you’ll learn how to structure your state well, how to keep your state update logic maintainable, and how to share state between distant components.\
+
+In this chapter:
+- How to think about UI changes as state changes
+- How to structure state well
+- How to “lift state up” to share it between components
+- How to control whether the state gets preserved or reset
+- How to consolidate complex state logic in a function
+- How to pass information without “prop drilling”
+- How to scale state management as your app grows 
+
+## 2.1 Reacting to Input with State
+- Talked about difference between declarative UI and Imperative UI
+- how to set up state in react (imperative)
+
+### 2.1.1 How declarative UI compares to imperative(difference between declarative UI(react) and imperative(normal js))
+consider a form that lets the user submit an answer:
+- When you type something into the form, "submit" button **becomes enabled**
+- When you press "Submit", both the form and the button become **disabled**, and a spinner **appears**.
+- If the network reuqest succeeds, the form **gets hidden**, and the "Thank you" message appeears.
+- if the network request fails, an error message **appears**, and the form **becomes enabled** again.
+
+In **imperative programming**, the above corresponds directly to how you implement interaction.you have to write the exact instructions to manipulate the UI depending on what just happended. Here's another way to think about this: imagine riding next to someone in a car and telling them turn by turn where to go.
+![imperative programming](13.png)
+
+Example using imperative UI programming without React, only uses browser DOM:
+  - **DOM**: it is a tree version of my HTML. it does not include JS. but the JS can read, modify,  add to the DOM i.e. the tree. HTML builds the initial DOM, and JS is like a worker that look at DOM, change it, add new stuff to it.
+
+```html
+<form id="form">
+  <h2>City quiz</h2>
+  <p>
+    What city is located on two continents?
+  </p>
+  <textarea id="textarea"></textarea>
+  <br />
+  <button id="button" disabled>Submit</button>
+  <p id="loading" style="display: none">Loading...</p>
+  <p id="error" style="display: none; color: red;"></p>
+</form>
+<h1 id="success" style="display: none">That's right!</h1>
+
+<style>
+* { box-sizing: border-box; }
+body { font-family: sans-serif; margin: 20px; padding: 0; }
+</style>
+```
+
+```js
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  disable(textarea);
+  disable(button);
+  show(loadingMessage);
+  hide(errorMessage);
+  try {
+    await submitForm(textarea.value);
+    show(successMessage);
+    hide(form);
+  } catch (err) {
+    show(errorMessage);
+    errorMessage.textContent = err.message;
+  } finally {
+    hide(loadingMessage);
+    enable(textarea);
+    enable(button);
+  }
+}
+
+function handleTextareaChange() {
+  if (textarea.value.length === 0) {
+    disable(button);
+  } else {
+    enable(button);
+  }
+}
+
+function hide(el) {
+  el.style.display = 'none';
+}
+
+function show(el) {
+  el.style.display = '';
+}
+
+function enable(el) {
+  el.disabled = false;
+}
+
+function disable(el) {
+  el.disabled = true;
+}
+
+function submitForm(answer) {
+  // Pretend it's hitting the network.
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (answer.toLowerCase() === 'istanbul') {
+        resolve();
+      } else {
+        reject(new Error('Good guess but a wrong answer. Try again!'));
+      }
+    }, 1500);
+  });
+}
+
+let form = document.getElementById('form');
+let textarea = document.getElementById('textarea');
+let button = document.getElementById('button');
+let loadingMessage = document.getElementById('loading');
+let errorMessage = document.getElementById('error');
+let successMessage = document.getElementById('success');
+form.onsubmit = handleFormSubmit;
+textarea.oninput = handleTextareaChange;
+```
+
+Manipulating the UI imperatively works well enough for isolated examples, but it gets extremely difficulte to manage more complex system. Image update a page full of different forms like this one. adding a new UI element or a new interaction would require carefully checking all exising code to make sure you haven't introduced a bug(for example, forgetting to show or hide something)
+
+React was built to solve this problem. In React, you dont directly manipulate the UI-meaning you don't enable, disable, show, or hide components directly. Instead, you **declare what you want to show**, and react figures out how to update UI. It is like getting in to a taxi and telling the driver where you want to go instead of telling them exactly where to turn. Its the driver's job to get you there, and they might even know some shortcurs you haven't considered! 
+![](14.png)
+
+### 2.1.2 Think UI declaratively
+1. Identify your component's different visual states
+2. Determine what triggers those state changes
+3. Represent the state in memory using `useState`
+4. Remove any non-essential state variables
+5. Connect the event handlers to set the state
+
+## 2.2 Choosing the State Structure
+- When to use a single vs multiple state variables
+- What to avoid when organizing state
+- How to fix common issues with the state structure.
+
+1. Group related state. If you always update two or more state variables at the same time, consider merging them into a single state variable.
+2. Avoid contradictions in state. When the state is structured in a way that several pieces of state may contradict and “disagree” with each other, you leave room for mistakes. Try to avoid this.
+3. Avoid redundant state. If you can calculate some information from the component’s props or its existing state variables during rendering, you should not put that information into that component’s state.
+4. Avoid duplication in state. When the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.
+5. Avoid deeply nested state. Deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.
+
+## 2.3 Sharing State Between components
+ - How to share state between components by lifting it up.
+
+
+
+
