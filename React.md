@@ -868,6 +868,11 @@ React was built to solve this problem. In React, you dont directly manipulate th
 ## 2.3 Sharing State Between components
  - How to share state between components by lifting it up.
 
+## 2.4 Preserving and Resetting State
+- When React chooses to preserve or reset the state
+- How to force React to reset component’s state
+- How keys and types affect whether the state is preserved
 
+## 2.5 learned how to useReducer
 
-
+## 2.6 

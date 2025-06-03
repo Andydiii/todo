@@ -1040,8 +1040,30 @@ Home:
 
 ## 5.28
 - [X] tanstack query one more section 1. 
-- [ ] One chapter in Managing State   2. 
-- [ ] CS341 LEC4 rest                 3.
+- [X] One chapter in Managing State   2. 
+- [X] CS341 LEC4 rest                 3.
+
+## 5.29
+- [X] tanstack query one more section 1. 
+- [X] One chapter in Managing State   2. 
+- [ ] TUT2 16th                            3.
+- [ ] course selection
+
+
+## 5.30
+- [X] tanstack query one more section 1. 
+- [X] One chapter in Managing State   2. 
+- [ ] TUT2 16th                       3.
+- [X] course selection
+
+## 6.2
+- [X] ARMS client test
+- [X] check with client the search field issue
+- [ ] Angular Intro
+- [ ] Java
+- [ ] One chapter in Managing State  
+- [X] TUT2 16th                     
+
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
@@ -1164,3 +1186,18 @@ password: InThePitch-BlackNightSky,YourSoulSparkles.
 two testings:
 1. wrong sid -> update sid to correct one -> email to user
 2. not in db -> no account send a email to user
+
+
+email alert trigger in postman:
+misccontroller testscheduler params in postman
+
+in postman specify post method, params will be auto changed once url is put in, header need to add X-API-KEY, value depends on differnt env, we can find it in search application will give something like `application.dev.property`. (application.property is local env file)
+
+url: https://dev.regulatoryregistry.gov.on.ca/api/api/testScheduler?frequency=daily&isDryRun=true
+
+isdryrun set to true means wont trigger real eamail sent rn, but false will trigger it to be sent right now.
+
+this test is based on today morning's expected email alert to be received.
+
+weekly:
+postings that updated *last 7 days* suppose today is tuesday, if there is update from last tuesday to this monday then we get alert. different than normal we receive weekly on monday for the updates between last monday to sunday.
