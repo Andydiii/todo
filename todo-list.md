@@ -1064,6 +1064,77 @@ Home:
 - [ ] One chapter in Managing State  
 - [X] TUT2 16th                     
 
+## 6.3
+- status
+- trying fix defect
+
+- [X] defect fix    1
+- [X] LRO try chunk method 2
+- [ ] Angular Intro 2 done before 3? 
+- [ ] cs341 LEC5 half 3
+- [ ] One chapter in Managing State  
+
+## 6.4
+- status of 345
+  - [X] to confirm my understanding is correct, is the `effective date` means the release date of the law?
+  - [X] found where the issue is at in FO front end and found the coressponding api endpoint that contains the `effective date`
+  - [X] need to mimic how jinyu did use the api in frontoffice front end.
+
+- [X] defect fix    1
+  - [X] improvement for the defect fix
+    - [X] proposal -> search add a translation in en
+    - [X] handle it nicer for the empty case
+  - [X] ask jinyu if we need to add a new defect based on what Vanessa provided
+- [X] ARMs validation
+- [ ] Angular crash course 
+- [X] cs341 LEC5 half 
+
+## 6.5
+- [X] take a look at the error got so far
+- [X] talk to hannah about the error got so far  
+- [X] cs341 lec5 second half
+
+## 6.6
+- [X] test new chunk file 
+- [X] ask if they need help as they deploy tomorrow arms
+
+
+RR backoffice posting/new:
+- [X] time line lower case
+- [X] extra space after policies and forms
+- [X] number of days required
+- [ ] ministry field in ministry contact will be moved into create modal **(leave it for now)**
+- [X] Make the hint text under English content section to be transparent (a bit). Reference the design doc
+- [ ] text count in english content **(leave it for now)**vgfv
+- [ ] summary of proposal section rich text editing **(leave it for now)**
+- [X] remove unecessary code in modals 
+- [X] file name of table -> posting grid
+- [X] component name matches file name
+- [X] home page pass a minitsryId or 'all' grid props `ministryId: number | 'all'` to represent an editor or an admin.
+
+
+6.7
+- [X] angular crash course
+- [X] lec6 half
+- [ ] java spring
+
+
+6.10
+- [X] DNR report issue fix
+- [X] defect 353
+  - [X] NA french
+  - [X] NA for posing details top left one
+
+6.11
+- [X] ARMS DNR report
+- [X] test weekly reminder
+- [X] RR new defect
+- [ ] 
+
+6.12
+- [ ] ARMS DNR report
+- [ ] RR defect
+- [ ] youtube video angular
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
@@ -1188,7 +1259,11 @@ two testings:
 2. not in db -> no account send a email to user
 
 
-email alert trigger in postman:
+**email alert trigger in postman:**
+URL: https://dev.regulatoryregistry.gov.on.ca/api/api/testScheduler?frequency=daily&isDryRun=true
+
+replace the domain to the current domain
+
 misccontroller testscheduler params in postman
 
 in postman specify post method, params will be auto changed once url is put in, header need to add X-API-KEY, value depends on differnt env, we can find it in search application will give something like `application.dev.property`. (application.property is local env file)
@@ -1201,3 +1276,31 @@ this test is based on today morning's expected email alert to be received.
 
 weekly:
 postings that updated *last 7 days* suppose today is tuesday, if there is update from last tuesday to this monday then we get alert. different than normal we receive weekly on monday for the updates between last monday to sunday.
+
+
+
+**sorting:**
+in "ALL": all posting are sorted by diff(current date - comment due date) in decreasing order. so open for comment will come in the top, close for comment next, decision made last. **in ALL, after we sort by this comment due date, we dont have any further sort right?**
+
+question:
+is there any sort when we select the other three tabs? 
+   - sort by urgency of comment due date in open for comment tab
+   - sort by urgency of comment due date in close for comment
+
+case of no comment due date: if we have five postings with posting date: Jan 1, Feb 1, Mar 1, April 1, May 1
+  - [ ] will these five ordered by the posting date in increasing order? like Jan1, followed by Feb1, etc... and followed by posting with no comment due date in the end? 
+     - put in the back of all
+  - [ ] if there is a new decision made posting with no posting date and comment date, then this posting will be appended to the last of decision made? 
+    - [ ] 
+
+search page have 4 status options tab:
+number of all items = the other three sum
+
+client needs to specify:
+open for comments status tab: how to sort this? urgency as before? # of days left? 
+closed for comments tab: how to sort?
+decision made: how to sort?
+
+all items: sort based on sort on above three. same logic applies to same status in the all items. they can order the 3 sections order. 
+
+we can do two sorting: like 10 posts. 5 with comment due date 5 without. sort inside by 
