@@ -1129,12 +1129,108 @@ RR backoffice posting/new:
 - [X] ARMS DNR report
 - [X] test weekly reminder
 - [X] RR new defect
-- [ ] 
 
 6.12
-- [ ] ARMS DNR report
-- [ ] RR defect
+- [X] ARMS DNR report
+- [X] RR email alert defect select all
 - [ ] youtube video angular
+- [ ] cs341
+
+
+6.13
+- [X] previous user has ministryid=  -1 in DB, treat [-1] as [] so it means selected all.
+- [X] code change in BO
+- [X] ARMS report 
+
+6.15
+- [X] angular review
+- [X] finishe angular tut
+- [X] cs341 lec6 note
+
+6.16
+- [X] improve the fix
+- [X] testing Record query
+- [X] copy `record query` to PROD 
+- [ ] defect fix
+  - [X] english is fixed
+  - [ ] wait for french from business
+
+- [X] finishe angular tut
+- [ ] cs341 A2 3-4
+
+6.17
+- [X] stage testing 
+- [X] defect 280 find which table store the field for `name of ornization`, to create a new field for it.
+- [X] ARMS 503 error research based on screenshots and error message and kitty's message in teams
+- [ ] content defect above
+  - [ ] wait for french from business
+
+- [X] cs341 A2 second half
+
+6.18
+- [X] add the fied into DB  
+- [X] content defect above
+  - [X] wait for french from business
+  - [X] fix the defect
+  - [X] double check with client if the change is satisfied
+- [X] cs341 A2 second half
+
+6.19
+- [X] follow up the defect 354 
+- [X] 345 french issue reopen
+- [ ] backend 
+- [ ] testing for cunsumer protection
+- [X] VBA research
+
+- [X] java spring spring boot
+
+6.21
+- [X] backend 
+- [ ] testing for cunsumer protection
+- [X] CR280 research 
+
+6.22
+- [X] lec7 half 
+
+6.23
+- [X] test client arms
+- [X] CR280 DB and backend
+
+- [X] lec 7 finish
+
+6.24
+- [X] UI of CR280
+- [X] angular forms
+- [X] add items in 2.2.0 into the excel sheet.
+
+6.25
+- [X] VBA
+- [X] defect 361
+
+- [X] 341 A2 last question.
+- [ ] midterm  
+
+26
+- [X] defect 300 clarification:
+  - [X] two options: 1. based on lang 2. based on profile dropdown box (existing user will still receieve eng and french)
+- [X] 280 improvement optinal in guest and french
+
+
+6.30
+- [ ] arms testing
+- [X] one request only (searched by perm/transfer number/locationID)
+  - [X] when select box, ref 1 default to be box 
+  - [X] char cpunt <= 30 testing
+  - [X] email format split column for perm/locationID
+  - [X] DB data match. 
+  - [X] select file will default to empty in both ref1 and ref2 now not box.
+- [X] more than one box/file in one request (searched by perm/transfer number/locationID)
+  - [X] when select box, ref 1 default to be box 
+  - [X] char cpunt <= 30 testing
+  - [X] email format split column for perm/locationID
+  - [X] DB data match. 
+  - [X] select file will default to empty in both ref1 and ref2 now not box.
+
 
 Overall works:
 - [X] BO SSO/Azure AD groups doc for developer/business
@@ -1259,23 +1355,9 @@ two testings:
 2. not in db -> no account send a email to user
 
 
-**email alert trigger in postman:**
-URL: https://dev.regulatoryregistry.gov.on.ca/api/api/testScheduler?frequency=daily&isDryRun=true
 
-replace the domain to the current domain
 
-misccontroller testscheduler params in postman
 
-in postman specify post method, params will be auto changed once url is put in, header need to add X-API-KEY, value depends on differnt env, we can find it in search application will give something like `application.dev.property`. (application.property is local env file)
-
-url: https://dev.regulatoryregistry.gov.on.ca/api/api/testScheduler?frequency=daily&isDryRun=true
-
-isdryrun set to true means wont trigger real eamail sent rn, but false will trigger it to be sent right now.
-
-this test is based on today morning's expected email alert to be received.
-
-weekly:
-postings that updated *last 7 days* suppose today is tuesday, if there is update from last tuesday to this monday then we get alert. different than normal we receive weekly on monday for the updates between last monday to sunday.
 
 
 
