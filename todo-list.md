@@ -1215,6 +1215,80 @@ RR backoffice posting/new:
   - [X] two options: 1. based on lang 2. based on profile dropdown box (existing user will still receieve eng and french)
 - [X] 280 improvement optinal in guest and french
 
+7.5
+- [X] nextjs routing-"catch-all dynamic segments" 
+- [X] Piazza+ project UX layout
+- [ ] lec 
+
+7.6
+- [X] Piazza+ UI layout
+- [X] nextjs not found 
+
+7.7
+- [X] lec11 half reading.
+
+7.8
+- [x] fix one defect
+- [x] AODA testing tool request.
+- [X] defect300 clarification
+- [X] nextjs 2 more sections
+- [ ] lec 11 another half reading
+
+
+7.9
+- [ ] nextjs 2 more sections
+- [X] lec 11 keynotes summarize reading
+
+7.10
+- [X] defect 300 start
+- [ ] AODA defects fix (leave to hannah)
+  
+- [X] nextjs 2 more sections
+- [ ] lec 11 keynotes for knapsack
+
+7.11
+- [ ] deployment to DEV UAT
+  - [ ] deploy to DEV first with original version
+  - [ ] deploy to DEV second
+
+7.14
+- [X] Idea of how to do defect 300
+- [X] RR items schedule
+
+7.15
+- [ ] defect 300 finish
+- [ ] test api in ui
+- [ ] lec 11 writing wrap up
+- [ ] lec 12 a bit
+
+
+add a new field in DB.  DONE
+add the new field in backend **DONE in DTO and ToEntity**
+see if I can get the data in api to test 2. **DONE in some api**
+use existing service/repository to get the data
+3 cases: data = fr, data = en, data = null to determine the email body
+
+
+New change into PROD:
+- [ ] approve Vlad's PR and review it in local
+- [X] setup meeting with client to show the change to demo the change in local
+- [X] let Jake walk us through the steps to deploy the change into DEV, then UAT(notify client). 
+  - [X] any questions on the 
+  - [X] ask what changes he has been made 
+  - [X] is there any down time for PROD if we do deployment to PROD
+- [ ] after UAT is fine tested by client -> deploy to PROD (notify PROD)
+- [ ] merge master into main
+
+- [X] “File Name” must be changed to “Reference 1”
+- [X] “File Number” must be changed to “Reference 2”
+- [ ]	Reference 1 field must be a maximum of 30 characters.
+- [ ] Reference 2 field must be a maximum of 30 characters.
+- [ ] Reference 1 MUST be a mandatory field. There should not be an option for clients to leave this field blank.
+- [ ] Reference 2 is optional.
+- [ ] Note 1: “Please note: To retrieve a file, the Reference 1 field must be completed. Requests without a completed Reference 1 field will not be processed.”
+- [ ] Note 2: “Please note: If text in Reference 1 exceeds 30 characters, continue the remaining text in Reference 2.”
+
+
 
 6.30
 - [ ] arms testing
