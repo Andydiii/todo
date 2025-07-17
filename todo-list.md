@@ -1255,12 +1255,15 @@ RR backoffice posting/new:
 - [X] Idea of how to do defect 300
 - [X] RR items schedule
 
-7.15
-- [ ] defect 300 finish
-- [ ] test api in ui
+
+7.16
+- [X] defect 300 finish
+  - [X] wording in backend
+  - [X] update/create profile has a new dropdown field
+  - [X] comment posting does not add new field 
 - [ ] lec 11 writing wrap up
 - [ ] lec 12 a bit
-
+- [ ] PP test api in ui
 
 add a new field in DB.  DONE
 add the new field in backend **DONE in DTO and ToEntity**
