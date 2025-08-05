@@ -32,11 +32,15 @@ https://intra.stage.sus.gov.on.ca/registryadmin/bo_login.jsp
 
 Admin:
 User ID: chenji
-Password: ORRM_test123!
+Password: ORRM_test123
 
 Editor:
 User ID: chen1ji
 Password: ORRM_test123!
+
+user:
+liuco
+ORRM_test123!
 
 **back end:**
 - PostingController is for the api of posting
@@ -69,7 +73,7 @@ postings that updated *last 7 days* suppose today is tuesday, if there is update
 
 ## RR testing sender email
 orrm.test@gmail.com
-ORRM_test!2025 
+ORRM_test!2025
 
 orrm.test2@gmail.com
 ORRM_test!2025 
@@ -104,3 +108,9 @@ CR wont issue a ticket but just in SP.
 3. update profile, leave title blank, everthing else fileld out, error expected - DONE 
 4. create a new organization user profile  - DONE
 5. create a new organization guest profile - DONE
+
+defect 300 workflow
+user click follow button -> UserManagementController.java: createUserFollowedPosting -> userFollowedPostingService  Create -> userFollowedPostingRepository -> this followed posting is added into userfollowedposting table -> emailAlertScheduler (when to send, what to send is done here) ->  email sender  
+
+CR 293:
+new filter in search page e.g. anticipated effective date

@@ -1261,16 +1261,56 @@ RR backoffice posting/new:
   - [X] wording in backend
   - [X] update/create profile has a new dropdown field
   - [X] comment posting does not add new field 
-- [ ] lec 11 writing wrap up
-- [ ] lec 12 a bit
-- [ ] PP test api in ui
+- [X] lec 11 writing wrap up
 
-add a new field in DB.  DONE
-add the new field in backend **DONE in DTO and ToEntity**
-see if I can get the data in api to test 2. **DONE in some api**
-use existing service/repository to get the data
-3 cases: data = fr, data = en, data = null to determine the email body
 
+7.18
+- [X] ARMs csv unexpected values in unit field.
+- [X] RR SP
+- [X] PP authentication 
+- [X] lec 12 a bit
+
+7.20
+- [X] authentication defect
+- [X] use api and test api in Frontend
+
+7.22
+- [X] trace code  to find if anywhere is saying throw exception.... into somewhere in some log files.
+- [X] do I still need to improve the roles and permission matrix?
+- [X] discuss arms issue
+- [ ] nextjs 
+- [X] cs341 a3
+
+7.23
+- [X] ARMS try print logs into the log file. try find the exmaple in the code how insertGone is done.
+- [ ] RR new defect 287
+
+- [X] nextjs
+
+7.31
+- [X] cs341 lec13 lec 14 one question
+- [ ] defect fix
+
+
+8.1
+- [ ] lec14 second half + one question in tut 8
+- [X] defect fix
+
+
+RR fix:
+- [X] 320 改mobile ui的东西，不影响desktop with media query
+- [X] 300 add a prefered language in frontend backend and DB
+- [ ] 392: add a new field in posting relevant date "update date"
+- [ ] 293: add a new search filter for effective date. 展示未来所有年份7.1/1.1生效的posting。 可能只有decision made的posting有effectivedate
+  - [X] 第一步 先看一下现在的别的date是怎么filter的
+  - [X] 看明白之后参考模仿去filter effective date
+  - [ ] ui html: user can only enter one field of effective date and anticipated effective date. effective date picker needs a reset button in picker to remove the ocntent inside the field. anticipated effective date has three options 1. null, 2. Jan 1 3. July 1
+  - [ ] frontend (search.ts) needs to manipulate the data we got from UI: 
+    - [ ] although the first field effectiveDate is null, but we will change the formvalue - `effectiveDateAfterInclusive` to be the today's date, so that the api will only consider the posting has effective date >= that date. and we add a new url param say "`anticipatedEffectiveDate` = MM/DD". then by the first condition effectiveDateAfterInclusive and anticapatedeffectiveDate, we can find the postings with the anticipated effectiveDate.
+  - [ ] backend postingSpec needs to add the logic that when frontend pass in a url param `anticipatedEffectiveDate`, we need to return that specific date.
+  ![dasd](image-15.png)
+- [ ] 287： user follow之后会立马收到一个confirm的email 
+- [ ] 395: text change
 
 New change into PROD:
 - [ ] approve Vlad's PR and review it in local
