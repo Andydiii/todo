@@ -1296,6 +1296,19 @@ RR backoffice posting/new:
 - [ ] lec14 second half + one question in tut 8
 - [X] defect fix
 
+8.19
+- [X] one more section nextjs
+- [X] ARMS report issue
+
+8.27
+- [ ] resume (sso)
+- [ ] sending passport
+  - [ ] copy of the passport request
+  - [ ] buy two evelopers in canadapost
+- [ ] kiki's birthday gift
+- [ ] nextjs one two more sections
+- [ ] dd food
+
 
 RR fix:
 - [X] 320 改mobile ui的东西，不影响desktop with media query
@@ -1306,7 +1319,7 @@ RR fix:
   - [X] 看明白之后参考模仿去filter effective date
   - [ ] ui html: user can only enter one field of effective date and anticipated effective date. effective date picker needs a reset button in picker to remove the ocntent inside the field. anticipated effective date has three options 1. null, 2. Jan 1 3. July 1
   - [ ] frontend (search.ts) needs to manipulate the data we got from UI: 
-    - [ ] although the first field effectiveDate is null, but we will change the formvalue - `effectiveDateAfterInclusive` to be the today's date, so that the api will only consider the posting has effective date >= that date. and we add a new url param say "`anticipatedEffectiveDate` = MM/DD". then by the first condition effectiveDateAfterInclusive and anticapatedeffectiveDate, we can find the postings with the anticipated effectiveDate.
+    - [ ] we will get effectiveDate as null and anticipatedEffective date as MM/DD format. although the first field effectiveDate in UI is null, but we will change the formvalue in `search.component.ts` - `effectiveDateAfterInclusive` to be the today's date, so that the api will only consider the posting has effective date >= that date. and we add a new url param say "`anticipatedEffectiveDate` = MM/DD". then by the first condition effectiveDateAfterInclusive and anticapatedeffectiveDate, we can find the postings with the anticipated effectiveDate.
   - [ ] backend postingSpec needs to add the logic that when frontend pass in a url param `anticipatedEffectiveDate`, we need to return that specific date.
   ![dasd](image-15.png)
 - [ ] 287： user follow之后会立马收到一个confirm的email 

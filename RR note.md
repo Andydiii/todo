@@ -114,3 +114,40 @@ user click follow button -> UserManagementController.java: createUserFollowedPos
 
 CR 293:
 new filter in search page e.g. anticipated effective date
+
+
+## This application uses Microsoft Azure AD (Active Directory) SSO with the Microsoft Authentication Library (MSAL):
+
+1. clarifications about Microsoft Azure AD:
+- its a identity provider
+- stores and manages users, groups, roles, permissions.
+- It’s the place your application "trusts" to authenticate users (verify who they are) and optionally authorize them (decide what they can access).
+In this project:
+- Azure AD is where the regulatory registry application "redirects" users to log in.
+- Users don’t log in directly to your app with local credentials; instead, they authenticate through Azure AD.
+- After successful login, Azure AD issues a token (like an ID token or access token) that your app can use to identify the user and, if needed, call APIs securely.
+
+2. Microsoft Authentication Library (MSAL)
+- Now, MSAL is the client-side helper library your app uses to talk to Azure AD.
+- It handles the complicated parts of authentication for you.
+  - Instead of you manually redirecting, parsing tokens, and refreshing them, MSAL does that.
+- On the front-end (React), MSAL is used to trigger sign-in, sign-out, and acquire tokens. E.g., when a user clicks "Login", MSAL redirects them to Azure AD’s login page. Once the user authenticates, MSAL parses the returned JWT tokens (ID token, access token).
+
+
+**SSO Implementation Overview**
+We implemented Azure AD SSO using MSAL, which provides:
+- **Seamless** user experience through (**automatic** login and **silent** token refresh)
+- Enterprise **security** via Azure AD integration and group-based roles
+- Scalable architecture that can easily extend to more applications
+- Compliance-ready solution following Microsoft security standards"
+
+1. "How does your app handle authentication?"
+"We use Azure AD SSO with MSAL for seamless enterprise authentication"
+2. "What happens when a user's session expires?"
+"MSAL automatically refreshes tokens silently, maintaining the SSO experience"
+3. "How do you implement role-based access?"
+"We map Azure AD groups to application roles using Microsoft Graph API"
+4. "What security measures are in place?"
+"No hardcoded secrets, environment-based configs, and secure token storage"
+5. "How scalable is your authentication solution?"
+"Azure AD can handle thousands of users and easily integrate with more applications"
