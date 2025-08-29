@@ -138,16 +138,18 @@ In this project:
 We implemented Azure AD SSO using MSAL, which provides:
 - **Seamless** user experience through (**automatic** login and **silent** token refresh)
 - Enterprise **security** via Azure AD integration and group-based roles
-- Scalable architecture that can easily extend to more applications
-- Compliance-ready solution following Microsoft security standards"
+
+benefits: 
+User Experience: No repeated logins across applications
+Security: Centralized authentication through Azure AD
 
 1. "How does your app handle authentication?"
 "We use Azure AD SSO with MSAL for seamless enterprise authentication"
-2. "What happens when a user's session expires?"
+1. "What happens when a user's session expires?"
 "MSAL automatically refreshes tokens silently, maintaining the SSO experience"
-3. "How do you implement role-based access?"
+1. "How do you implement role-based access?"
 "We map Azure AD groups to application roles using Microsoft Graph API"
-4. "What security measures are in place?"
+1. "What security measures are in place?"
 "No hardcoded secrets, environment-based configs, and secure token storage"
-5. "How scalable is your authentication solution?"
+1. "How scalable is your authentication solution?"
 "Azure AD can handle thousands of users and easily integrate with more applications"

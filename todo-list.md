@@ -1301,10 +1301,10 @@ RR backoffice posting/new:
 - [X] ARMS report issue
 
 8.27
-- [ ] resume (sso)
-- [ ] sending passport
-  - [ ] copy of the passport request
-  - [ ] buy two evelopers in canadapost
+- [X] resume (sso)
+- [X] sending passport
+  - [X] copy of the passport request
+  - [X] buy two evelopers in canadapost
 - [ ] kiki's birthday gift
 - [ ] nextjs one two more sections
 - [ ] dd food
